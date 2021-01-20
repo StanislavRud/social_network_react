@@ -12,13 +12,16 @@
 a {
     color: black;
 }
+.dialog {
+    margin-bottom: 15px;
+}
 
 .dialogsItems a.activeLink{
     color: white;
 }
 
-.dialog {
-
+.dialog img {
+    width: 50px;
 }
 
 

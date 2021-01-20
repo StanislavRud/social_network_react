@@ -1,0 +1,12 @@
+.profileInfo {
+    width: 100%;
+}
+
+.profileInfo img {
+    width: 100%;
+    height: 350px;
+}
+
+.description {
+    padding: 10px;
+}
