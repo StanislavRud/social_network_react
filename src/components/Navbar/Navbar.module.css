@@ -1,7 +1,7 @@
 .nav {
     grid-area: nav;
     background: #00b3ff;
-    height: 80vh;
+    /*height: 80vh;*/
     padding: 20px;
 }
 

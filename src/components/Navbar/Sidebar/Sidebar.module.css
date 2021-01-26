@@ -1,0 +1,20 @@
+.sidebar {
+    margin-top: 150px
+}
+
+.sidebar h3 {
+    text-align: center;
+}
+
+.sidebar ul {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar li {
+    list-style: none;
+    width: 50px;
+}
+
