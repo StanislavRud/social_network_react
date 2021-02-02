@@ -10,3 +10,7 @@
 .description {
     padding: 10px;
 }
+
+.description img {
+    width: 50px;
+}

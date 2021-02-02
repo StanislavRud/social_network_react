@@ -8,7 +8,8 @@ const ProfileInfo = () => {
                 <img src="https://promptinnov.com/wp-content/uploads/2016/03/techno-bg.jpg" alt="img"/>
             </div>
             <div className={style.description}>
-                avatar + description
+                <img src="147140.svg" alt="avatar" />
+                description
             </div>
         </div>
     );
