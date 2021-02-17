@@ -1,33 +1,38 @@
-const profileReducer = (state, action) => {
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-    if (action.type === ADD_POST){
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
 
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-        this._state.profilePage.newPostText = action.newText;
-        this._callSubscriber(this._state);
+let initialState = {
+    posts: [
+        {id: 1, message: 'Hello', likesCount: 10},
+        {id: 2, message: 'How are you?', likesCount: 20},
+        {id: 3, message: 'How ', likesCount: 25},
+        {id: 4, message: 'are you?', likesCount: 5}
+    ],
+        newPostText: 'Moskvich Club'
+};
 
-    } else if (action.type === ADD_MESSAGE ) {
-        let newMessage = {
-            id: 6,
-            message: this._state.dialogsPage.newMessageText,
-            likesCount: 0
-        };
-        this._state.dialogsPage.messages.push(newMessage);
-        this._state.dialogsPage.newMessageText = '';
-        this._callSubscriber(this._state);
+const profileReducer = (state = initialState, action) => {
 
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-        this._state.dialogsPage.newMessageText = action.newText;
-        this._callSubscriber(this._state);
+    switch (action.type) {
+        case ADD_POST:
+            let newPost = {
+                id: 5,
+                message: state.newPostText,
+                likesCount: 0
+            };
+            state.posts.push(newPost);
+            state.newPostText = '';
+            return state;
+        case UPDATE_NEW_POST_TEXT:
+            state.newPostText = action.newText;
+            return state;
+        default :
+            return state;
     }
+};
 
-    return state
-}
+export const addPostActionCreator = () => ({ type: ADD_POST });
+export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+
+export default profileReducer;
