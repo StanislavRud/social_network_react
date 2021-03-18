@@ -5,21 +5,21 @@ import * as axios from "axios";
 const Users = (props) => {
 
 
-    // if (props.users.length === 0) {
-    //     axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-    //         props.setUsers(response.data.items)
-    //     });
-    // }
-
     if (props.users.length === 0) {
-
-        props.setUsers([
-                {"name":"steshko","id":15835,"uniqueUrlName":null,"photos":{"small":null,"large":null},"status":null,"followed":false},
-                {"name":"vladmdev","id":15834,"uniqueUrlName":null,"photos":{"small":null,"large":null},"status":null,"followed":false},
-                {"name":"romastepanyuk","id":15833,"uniqueUrlName":null,"photos":{"small":null,"large":null},"status":null,"followed":false}
-            ]
-        );
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            props.setUsers(response.data.items)
+        });
     }
+
+    // if (props.users.length === 0) {
+    //
+    //     props.setUsers([
+    //             {"name":"steshko","id":15835,"uniqueUrlName":null,"photos":{"small":null,"large":null},"status":null,"followed":false},
+    //             {"name":"vladmdev","id":15834,"uniqueUrlName":null,"photos":{"small":null,"large":null},"status":null,"followed":false},
+    //             {"name":"romastepanyuk","id":15833,"uniqueUrlName":null,"photos":{"small":null,"large":null},"status":null,"followed":false}
+    //         ]
+    //     );
+    // }
 
     return <div className={style.container}>
             {

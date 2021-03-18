@@ -23,3 +23,7 @@
     display: inline-block;
     margin-right: 20px;
 }
+
+.avatar img {
+    width: 100%;
+}
