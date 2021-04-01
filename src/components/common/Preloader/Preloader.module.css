@@ -1,0 +1,15 @@
+.loading {
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #ffffff94;
+    top: 0;
+    left: 0;
+}
+.loading img {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    height: 90px;
+}
