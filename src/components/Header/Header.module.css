@@ -2,8 +2,14 @@
     grid-area: header;
     background: #0079b3;
     padding: 10px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .header img {
     height: 100%;
+    width: 20%;
+}
+.loginBlock a {
+    color: white;
 }

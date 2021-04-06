@@ -2,7 +2,6 @@ import React from 'react';
 import style from './ProfileInfo.module.css'
 import avatar from "../../../assets/images/avatar.svg";
 import Preloader from "../../common/Preloader/Preloader";
-import {Link, NavLink} from "react-router-dom";
 
 const ProfileInfo = (props) => {
 
@@ -19,8 +18,17 @@ const ProfileInfo = (props) => {
                 <img src={props.profile.photos.large != null ? props.profile.photos.large : avatar} alt="avatar" />
                 <div><h2>{props.profile.fullName}</h2></div>
                 description
-                <div><span>About me:</span> {props.profile.aboutMe}</div>
-                <div><span>Looking for a job:</span> {props.profile.lookingForAJob === true ? 'YES' : 'NO'}</div>
+                <div>
+                    <span>About me: </span>{props.profile.aboutMe}
+                </div>
+                <div>
+                    <span>Looking for a job: </span>{props.profile.lookingForAJob === true ? 'YES' : 'NO'}
+                </div>
+                <div>
+                    {props.profile.lookingForAJobDescription == null ? '' :  <span>Job Status: {props.profile.lookingForAJobDescription}</span>}
+
+                </div>
+
             </div>
         </div>
     );
