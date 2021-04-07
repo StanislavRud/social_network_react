@@ -3,6 +3,7 @@ import style from "./Users.module.css";
 import avatar from "../../assets/images/avatar.svg";
 import {NavLink} from "react-router-dom";
 import * as axios from "axios";
+import {usersAPI} from "../../API/api";
 
 
 let Users = (props) => {
@@ -40,12 +41,15 @@ let Users = (props) => {
 
                                                 props.toggleFollowingProcess(true, u.id);
                                                 props.toggleIsFetching(true);
-                                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
-                                                    withCredentials: true,
-                                                    headers: {
-                                                        "API-KEY": '4fe004f6-3126-4f2c-96d6-4a1feb41787f'
-                                                    }
-                                                })
+
+                                                usersAPI.unfollow(u.id)
+
+                                                // axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                                //     withCredentials: true,
+                                                //     headers: {
+                                                //         "API-KEY": '4fe004f6-3126-4f2c-96d6-4a1feb41787f'
+                                                //     }
+                                                // })
                                                     .then(response => {
                                                         if (response.data.resultCode === 0) {
 
@@ -54,18 +58,21 @@ let Users = (props) => {
 
                                                         props.toggleFollowingProcess(false, u.id);
                                                         props.toggleIsFetching(false);
-                                                    });
+                                                    }).then(u.followed = false)
                                             }}>Unfollow</button>
                                             : <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {
 
                                                 props.toggleFollowingProcess(true, u.id);
                                                 props.toggleIsFetching(true);
-                                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                                    withCredentials: true,
-                                                    headers: {
-                                                        "API-KEY": '4fe004f6-3126-4f2c-96d6-4a1feb41787f'
-                                                    }
-                                                })
+
+                                                usersAPI.follow(u.id)
+
+                                                // axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                                //     withCredentials: true,
+                                                //     headers: {
+                                                //         "API-KEY": '4fe004f6-3126-4f2c-96d6-4a1feb41787f'
+                                                //     }
+                                                // })
                                                     .then(response => {
 
                                                         if (response.data.resultCode === 0) {
@@ -75,7 +82,7 @@ let Users = (props) => {
                                                         props.toggleFollowingProcess(false, u.id);
                                                         props.toggleIsFetching(false);
 
-                                                    });
+                                                    }).then(u.followed = true)
                                             }}>Follow</button>}
                                     </div>
                                 </div>
