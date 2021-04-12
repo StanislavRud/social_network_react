@@ -9,7 +9,7 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false,
-    isFetching: true
+    isFetching: true,
 };
 
 const authReducer = (state = initialState, action) => {
