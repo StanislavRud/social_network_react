@@ -104,8 +104,8 @@ export const follow = (userId) => {
                 if (response.data.resultCode === 0) {
                     dispatch(followSuccess(userId));
                 }
-                dispatch(toggleIsFetching(false));
                 dispatch(toggleFollowingProcess(false, userId));
+                dispatch(toggleIsFetching(false));
 
             });
     };
@@ -121,8 +121,9 @@ export const unfollow = (userId) => {
                 if (response.data.resultCode === 0) {
                     dispatch(unfollowSuccess(userId));
                 }
-                dispatch(toggleIsFetching(false));
                 dispatch(toggleFollowingProcess(false, userId));
+                dispatch(toggleIsFetching(false));
+
             });
     };
 };
