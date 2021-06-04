@@ -49,7 +49,7 @@ export const getAuthUserData = () => (dispatch) =>{
 };
 
 export const login = (email, password, rememberMe) => (dispatch) =>{
-    
+
     dispatch(toggleIsFetching(true));
     authAPI.login(email, password, rememberMe)
         .then(response => {
@@ -57,7 +57,8 @@ export const login = (email, password, rememberMe) => (dispatch) =>{
             if (response.data.resultCode === 0) {
                 dispatch(getAuthUserData())
             } else {
-                dispatch(stopSubmit('login', {_error: 'E-mail or Password is wrong'}))
+               let message = response.data.messages.length > 0 ? response.data.messages[0] : 'E-mail or Password is wrong';
+                dispatch(stopSubmit('login', {_error: message}))
             }
         })
 
