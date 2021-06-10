@@ -1,5 +1,5 @@
 
-export const getUsers2 = (state) => {
+export const getUsers = (state) => {
     return state.usersPage.users;
 };
 
