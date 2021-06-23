@@ -1,0 +1,11 @@
+.numberPages span {
+    margin-right: 5px;
+}
+
+.numberPages span:hover {
+    cursor: pointer;
+}
+
+.selectedPage {
+    font-weight: bold;
+}

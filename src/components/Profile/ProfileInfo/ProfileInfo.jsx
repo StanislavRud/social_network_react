@@ -2,36 +2,32 @@ import React from 'react';
 import style from './ProfileInfo.module.css'
 import avatar from "../../../assets/images/avatar.svg";
 import Preloader from "../../common/Preloader/Preloader";
-import ProfileStatus from './ProfileStatus';
 import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({profile, status, updateStatus}) => {
 
-    if (!props.profile) {
+    if (!profile) {
         return <Preloader />
     }
 
     return (
         <div>
             <div className={style.profileInfo}>
-                {/*<img src="https://promptinnov.com/wp-content/uploads/2016/03/techno-bg.jpg" alt="img"/>*/}
             </div>
             <div className={style.description}>
-                <img src={props.profile.photos.large != null ? props.profile.photos.large : avatar} alt="avatar" />
-                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
-                <div><h2>{props.profile.fullName}</h2></div>
+                <img src={profile.photos.large != null ? profile.photos.large : avatar} alt="avatar" />
+                <ProfileStatusWithHooks status={status} updateStatus={updateStatus}/>
+                <div><h2>{profile.fullName}</h2></div>
                 description
                 <div>
-                    <span>About me: </span>{props.profile.aboutMe}
+                    <span>About me: </span>{profile.aboutMe}
                 </div>
                 <div>
-                    <span>Looking for a job: </span>{props.profile.lookingForAJob === true ? 'YES' : 'NO'}
+                    <span>Looking for a job: </span>{profile.lookingForAJob === true ? 'YES' : 'NO'}
                 </div>
                 <div>
-                    {props.profile.lookingForAJobDescription == null ? '' :  <span>Job Status: {props.profile.lookingForAJobDescription}</span>}
-
+                    {profile.lookingForAJobDescription == null ? '' :  <span>Job Status: {profile.lookingForAJobDescription}</span>}
                 </div>
-
             </div>
         </div>
     );

@@ -28,17 +28,9 @@
     width: 100%;
 }
 
-.selectedPage {
-    font-weight: bold;
-}
 
-.numberPages span {
-    margin-right: 5px;
-}
 
-.numberPages span:hover {
-    cursor: pointer;
-}
+
 
 
 
