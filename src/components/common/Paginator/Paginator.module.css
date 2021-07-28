@@ -1,5 +1,10 @@
+.numberPages {
+    margin: 10px;
+}
+
 .numberPages span {
     margin-right: 5px;
+    padding: 5px;
 }
 
 .numberPages span:hover {
@@ -8,4 +13,10 @@
 
 .selectedPage {
     font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.numberPages button:nth-child(n + 1){
+    margin: 0 10px;
 }
